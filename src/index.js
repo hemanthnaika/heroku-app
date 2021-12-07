@@ -4,6 +4,7 @@ import connectDB from './services/mongodb/connectDB'
 dotenv.config()
 import cors from 'cors'
 import authRoutes from './routes/authRoutes'
+import categoryRoutes from './routes/categoryRoutes'
 
 const app = express()
 const port = process.env.PORT || 3003
@@ -15,6 +16,7 @@ app.use(express.json())
 
 //route to handle auth requests
 app.use("/api/v1/auth", authRoutes)
+app.use("/api/v1/category", categoryRoutes)
 
 
 app.listen(port, (req, res) => {
