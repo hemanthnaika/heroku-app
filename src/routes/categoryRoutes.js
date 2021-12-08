@@ -57,7 +57,7 @@ router.post('/add',
 /*
 type : PUT
 path : /api/v1/category/:id
-params : none
+params : id
 isProtected: private (admin)
 */
 
@@ -84,7 +84,7 @@ router.put('/update/:id'
 /*
 type : DELETE
 path : /api/v1/category/:id
-params : none
+params : id
 isProtected: private (admin)
 */
 
