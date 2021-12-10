@@ -1,4 +1,4 @@
-name: Deply (Server)
+name: Deploy (Server)
 
 on:
   push:
@@ -9,9 +9,19 @@ on:
       - ".github/workflows/DeployServer.yml"
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Log
         run: echo "Hi this action just ran"
+      - name: Set email
+        run: git config --global user.email 'gupta.kartik18kg@gmail.com'
+      - name: Set username
+        run: git config --global user.name 'KartikG18g'
+      - name: add files
+        run: git add .
+      - name: Create commit
+        run: git commit -m 'changes'
+      - name: get status
+        run: git status
