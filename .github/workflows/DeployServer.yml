@@ -22,4 +22,4 @@ jobs:
       - name: add heroku remote
         run: git remote add heroku https://heroku:2a620232-d793-4c42-a39d-1c74102224fa@git.heroku.com/kartik-recipe-api.git
       - name: push to heroku remote
-        run: git push heroku master
+        run: git push heroku master --force
