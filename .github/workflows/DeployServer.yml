@@ -23,3 +23,5 @@ jobs:
         run: git status
       - name: get branch
         run: git branch
+      - name: get remote
+        run: git remote show
