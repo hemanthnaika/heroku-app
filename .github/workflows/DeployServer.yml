@@ -1,0 +1,17 @@
+name: Deply (Server)
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "src/**"
+      - ".github/workflows/DeployServer.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Log
+        run: echo "Hi this action just ran"
