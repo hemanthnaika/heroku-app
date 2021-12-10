@@ -19,9 +19,7 @@ jobs:
         run: git config --global user.email 'gupta.kartik18kg@gmail.com'
       - name: Set username
         run: git config --global user.name 'KartikG18g'
-      - name: add files
-        run: git add .
-      - name: Create commit
-        run: git commit -m 'changes'
       - name: get status
         run: git status
+      - name: get branch
+        run: git branch
