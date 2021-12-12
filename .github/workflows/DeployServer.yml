@@ -21,7 +21,7 @@ jobs:
       - name: Add github email
         run: git config --global user.email 'hemanthnaika22@gmail.com'
       - name: add heroku remote
-        run: git remote add heroku https://heroku:5d638c53-7462-4c16-b91a-c1e87b5aac6a@git.heroku.com/hemanth-e-comerce-api.git
+        run: git remote add heroku https://heroku:${{secrets.HEROKU_API_KEY}}@git.heroku.com/${{secrets.HEROKU_APP_NAME}}.git
       - name: Fetch repo
         run: git fetch --unshallow
       - name: push to heroku remote
