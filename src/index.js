@@ -22,7 +22,7 @@ app.use("/api/v1/category", categoryRoutes)
 app.use("/api/v1/product", productRoutes)
 
 app.get('/', (req, res) => {
-    res.send(`Server running at ${port} `)
+    res.send(`Server running at ${port} 13dec `)
 })
 
 app.listen(port, (req, res) => {

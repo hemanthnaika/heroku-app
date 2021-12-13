@@ -33,7 +33,7 @@ isProtected: false (public)
 router.get('/all', async (req, res) => {
     try {
         const { categoryId } = req.query
-        const products = await Product.find({ category: categoryId })
+        const products = await Product.find({ category: categoryId }).populate('category')
         return res.status(200).json({ products, message: "Successfully fetched products" })
     } catch (error) {
         console.log(error.message)
