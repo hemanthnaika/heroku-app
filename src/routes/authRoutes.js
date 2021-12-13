@@ -34,7 +34,7 @@ isProtected: false
 router.post('/signup',
     body('firstName').isLength({ min: 5 }),
     body('email').isEmail(),
-    body('password').isLength({ min: 10 })
+    body('password').isLength({ min: 5 })
     , async (req, res) => {
 
         const { errors } = validationResult(req)
