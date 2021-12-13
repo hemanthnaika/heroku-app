@@ -81,7 +81,7 @@ router.post('/login', async (req, res) => {
                 return res.json({ token: null, message: "Unauthorised" })
             }
         }
-        return res.json({ token: null, message: "User doesn't exixst" })
+        return res.json({ token: null, message: "User doesn't Exixst" })
 
     } catch (error) {
         console.log(error.message)
