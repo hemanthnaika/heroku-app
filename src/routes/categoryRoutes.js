@@ -45,6 +45,7 @@ router.post('/add',
                 category, message: "Saved category in DB"
             })
         } catch (error) {
+            console.log(error)
             return res.status(500).json({
                 category: null,
                 message: "Unable to save category in DB"
