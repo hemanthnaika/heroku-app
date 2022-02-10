@@ -1,5 +1,6 @@
 import express from 'express'
 import Razorpay from "razorpay";
+import crypto from 'crypto'
 
 const router = express.Router()
 
@@ -28,5 +29,53 @@ router.post("/createOrder", async (req, res) => {
         res.status(500).send(error);
     }
 });
+
+router.post("/verify", async (req, res) => {
+    try {
+        // getting the details back from our font-end
+        const {
+            orderCreationId,
+            razorpayPaymentId,
+            razorpayOrderId,
+            razorpaySignature,
+        } = req.body;
+
+        // Creating our own digest
+        // The format should be like this:
+        // digest = hmac_sha256(orderCreationId + "|" + razorpayPaymentId, secret);
+        const shasum = crypto.createHmac("sha256", "rBILTTymM4S1b0R1kOPSF1PM");
+
+        shasum.update(`${orderCreationId}|${razorpayPaymentId}`);
+
+        const digest = shasum.digest("hex");
+
+        // comaparing our digest with the actual signature
+        if (digest !== razorpaySignature)
+            return res.status(400).json({ msg: "Transaction not legit!" });
+
+        // THE PAYMENT IS LEGIT & VERIFIED
+        // YOU CAN SAVE THE DETAILS IN YOUR DATABASE IF YOU WANT
+
+        res.json({
+            msg: "success",
+            orderId: razorpayOrderId,
+            paymentId: razorpayPaymentId,
+        });
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error);
+    }
+});
+
+// router.post("/webhook", async (req, res) => {
+//     try {
+//         // console.log(req.body)
+//         const {payload} = req.body
+//         console.log(payload)
+//     } catch (error) {
+//         console.log(error)
+//         res.status(500).send(error);
+//     }
+// });
 
 export default router
