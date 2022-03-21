@@ -16,7 +16,6 @@ router.post("/createOrder", async (req, res) => {
         const options = {
             amount: amount, // amount in smallest currency unit
             currency: "INR",
-            receipt: "receipt_order_74394",
         };
 
         const order = await instance.orders.create(options);
@@ -67,15 +66,15 @@ router.post("/verify", async (req, res) => {
     }
 });
 
-// router.post("/webhook", async (req, res) => {
-//     try {
-//         // console.log(req.body)
-//         const {payload} = req.body
-//         console.log(payload)
-//     } catch (error) {
-//         console.log(error)
-//         res.status(500).send(error);
-//     }
-// });
+router.post("/webhook", async (req, res) => {
+    try {
+        // console.log(req.body)
+        const {payload} = req.body
+        console.log(payload)
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error);
+    }
+});
 
 export default router
