@@ -10,7 +10,7 @@ import orderRoutes from './routes/orderRoutes'
 
 
 const app = express()
-const port = process.env.PORT || 3003
+const port = process.env.PORT || 8080
 
 connectDB()
 
