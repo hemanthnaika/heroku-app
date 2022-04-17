@@ -24,7 +24,7 @@ app.use("/api/v1/product", productRoutes)
 app.use("/api/v1/order", orderRoutes)
 
 app.get('/', (req, res) => {
-    res.send(`Server running at ${port}  `)
+    res.send(`Server running at ${port} Hemanth`)
 })
 
 app.listen(port, (req, res) => {
